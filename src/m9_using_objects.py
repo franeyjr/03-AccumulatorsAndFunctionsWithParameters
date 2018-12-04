@@ -15,8 +15,8 @@ def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
     # two_circles()
-    # circle_and_rectangle()
-    lines()
+    circle_and_rectangle()
+    # lines()
 
 def two_circles():
     """
@@ -85,26 +85,22 @@ def circle_and_rectangle():
     #       instance variables for outline thickness, etc.
     # -------------------------------------------------------------------------
     window = rg.RoseWindow(400,400)
-    x = 100
-    y = 100
-    center = rg.Point(x,y)
+    center = rg.Point(100,100)
     circ1 = rg.Circle(center, 25)
     circ1.attach_to(window)
     circ1.fill_color = 'blue'
-    recx = rg.Point(250,250)
-    recy = rg.Point(300,350)
-    rectangle = rg.Rectangle(recx,recy)
+    rectangle = rg.Rectangle(rg.Point(250,250),rg.Point(300,350))
     rectangle.attach_to(window)
     window.render()
     print('circle thickness', circ1.outline_thickness)
     print('circle fill color', circ1.fill_color)
     print('circle center', circ1.center)
-    print('circle center, x-coordinate', x)
-    print('circle center, y-coordinate', y)
+    print('circle center, x-coordinate', circ1.center.x)
+    print('circle center, y-coordinate', circ1.center.y)
     print('rectangle thickness', rectangle.outline_thickness)
     print('rectangle fill color', rectangle.fill_color)
-    print('first rectangle corner', recx)
-    print('second rectangle corner',recy)
+    print('first rectangle corner', rectangle.corner_1)
+    print('second rectangle corner',rectangle.corner_2)
     window.close_on_mouse_click()
 
 
@@ -139,11 +135,10 @@ def lines():
     line2.attach_to(window)
     window.render()
     print('midpoint of thicker line', line1.get_midpoint())
-    print('x-coordinate of the midpoint',)
-    print('y-coordinate of the midpoint',)
+    print('x-coordinate of the midpoint',line1.get_midpoint().x)
+    print('y-coordinate of the midpoint',line1.get_midpoint().y)
     window.close_on_mouse_click()
 
-    #cant get it to print single coordinates of a midpoint
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
