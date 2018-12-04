@@ -14,7 +14,8 @@ import rosegraphics as rg
 def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
-    two_circles()
+    # two_circles()
+    circle_and_rectangle()
 
 def two_circles():
     """
@@ -74,7 +75,7 @@ def circle_and_rectangle():
            150.0
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its green doc-string above.
+    # DONE: 3. Implement this function, per its green doc-string above.
     #   -- ANY objects that meet the criteria are fine.
     # Put a statement in   main   to test this function
     #    (by calling this function).
@@ -82,6 +83,28 @@ def circle_and_rectangle():
     # IMPORTANT: Use the DOT TRICK to guess the names of the relevant
     #       instance variables for outline thickness, etc.
     # -------------------------------------------------------------------------
+    window = rg.RoseWindow(400,400)
+    x = 100
+    y = 100
+    center = rg.Point(x,y)
+    circ1 = rg.Circle(center, 25)
+    circ1.attach_to(window)
+    circ1.fill_color = 'blue'
+    recx = rg.Point(250,250)
+    recy = rg.Point(300,350)
+    rectangle = rg.Rectangle(recx,recy)
+    rectangle.attach_to(window)
+    window.render()
+    print('circle thickness', circ1.outline_thickness)
+    print('circle fill color', circ1.fill_color)
+    print('circle center', circ1.center)
+    print('circle center, x-coordinate', x)
+    print('circle center, y-coordinate', y)
+    print('rectangle thickness', rectangle.outline_thickness)
+    print('rectangle fill color', rectangle.fill_color)
+    print('first rectangle corner', recx)
+    print('second rectangle corner',recy)
+    window.close_on_mouse_click()
 
 
 def lines():
